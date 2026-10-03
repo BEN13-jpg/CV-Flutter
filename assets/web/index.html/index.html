@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV - Benjamin Valencia</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
+    body { background-color: #f4f6f9; color: #333; padding: 16px; }
+    .card { background: #fff; padding: 16px; border-radius: 10px; margin-bottom: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    h1 { font-size: 20px; color: #1e3a8a; }
+    h2 { font-size: 16px; color: #1e3a8a; margin-bottom: 8px; border-bottom: 2px solid #e5e7eb; padding-bottom: 4px; }
+    .subtitle { font-size: 13px; color: #64748b; }
+    .btn { border: 1px solid #cbd5e1; background: #fff; padding: 6px 12px; border-radius: 15px; font-size: 12px; cursor: pointer; margin-right: 4px; margin-bottom: 6px; }
+    .btn.active { background-color: #1e3a8a; color: #fff; border-color: #1e3a8a; }
+    ul { list-style: none; }
+    li { padding: 8px; background: #f1f5f9; margin-bottom: 4px; border-radius: 6px; font-size: 13px; }
+  </style>
+</head>
+<body>
+
+  <header class="card">
+    <h1>Benjamin Valencia</h1>
+    <p class="subtitle">Ingeniería en Ciencias de la Computación | UPEC</p>
+  </header>
+
+  <section class="card">
+    <h2>Perfil Profesional</h2>
+    <p style="font-size: 13px;">Desarrollo de páginas web, aplicaciones móviles y sistemas embebidos. Integración de servicios web, bases de datos y redes.</p>
+  </section>
+
+  <section class="card">
+    <h2>Proyectos Destacados</h2>
+    <p style="font-size: 13px; margin-bottom: 4px;"><strong>• Juego de Piano:</strong> Plataforma para aprender a tocar piano de forma interactiva.</p>
+    <p style="font-size: 13px;"><strong>• 100 Ecuatorianos Dijeron:</strong> Juego trivia con sincronización de pantallas.</p>
+  </section>
+
+  <section class="card">
+    <h2>Habilidades Técnicas</h2>
+    <div style="margin-bottom: 8px;">
+      <button class="btn active" onclick="filtrar('todas')">Todas</button>
+      <button class="btn" onclick="filtrar('backend')">Backend</button>
+      <button class="btn" onclick="filtrar('movil')">Móvil</button>
+      <button class="btn" onclick="filtrar('frontend')">Frontend</button>
+    </div>
+    <ul id="skills">
+      <li class="backend">Java / ASP.NET MVC</li>
+      <li class="movil">Flutter / Dart</li>
+      <li class="frontend">HTML5 / CSS3 / JavaScript</li>
+      <li class="backend">Python / OpenCV</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Contacto</h2>
+    <p style="font-size: 13px;"><strong>Correo:</strong> elias.valencia@upec.edu.ec</p>
+  </section>
+
+  <script>
+    function filtrar(cat) {
+      const items = document.querySelectorAll('#skills li');
+      const btns = document.querySelectorAll('.btn');
+      btns.forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+      items.forEach(i => {
+        i.style.display = (cat === 'todas' || i.classList.contains(cat)) ? 'block' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>
